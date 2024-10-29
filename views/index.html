@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de Bitcoin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .table-container {
+            max-height: 400px; /* Ajusta la altura máxima según necesites */
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+            border: 1px solid #dee2e6; /* Borde alrededor de la tabla */
+            border-radius: 0.25rem; /* Bordes redondeados */
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Datos de Bitcoin</h1>
+    </header>
+    <main class="container my-4">
+        <section id="bitcoin-data" class="mb-4">
+            <h2 class="text-primary">Información Actual</h2>
+            <p>Precio Actual: <span id="current-price">--</span></p>
+            <p>Variación 24h: <span id="price-change">--</span></p>
+            <p>Moneda: <span id="Moneda">--</span></p>
+        </section>
+        <section id="historical-data">
+            <div class="table-container mb-4">
+                <h2 class="text-primary">Datos Históricos</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Precio de Cierre</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historical-data-body">
+                        <!-- Las filas de datos históricos se llenarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./views.js/index.js"></script>
+    <script src="./views.js/index2.js"></script>
+</body>
+</html>
