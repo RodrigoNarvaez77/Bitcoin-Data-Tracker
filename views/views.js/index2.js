@@ -1,6 +1,9 @@
 async function historicos(){
     const table = document.getElementById("historical-data-body");
     const variacion24horas = document.getElementById("price-change");
+    const ctx = document.getElementById('miGrafico').getContext('2d');
+    const labels = [];
+    const dataPoints = [];
     try{
         const response = await fetch(`/api/data/coin/historical`);
         const data = await response.json();
@@ -32,8 +35,35 @@ async function historicos(){
             row.appendChild(opcioncierre);
             table.appendChild(row);
 
+             // Agrega datos para el gráfico
+             labels.push(fecha);
+             dataPoints.push(parseFloat(item["4. close"]).toFixed(2));
+
+
         });
-        
+
+        //grafico analisis de datos
+        const miGrafico = new Chart(ctx, {
+            type: 'line', // Cambia a 'line' o 'pie' según lo que necesites
+            data: {
+                labels: labels, // Etiquetas de tus datos
+                datasets: [{
+                    label: 'Precio de Ciere',
+                    data: dataPoints, // Tus datos aquí
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+ 
     }catch(error){
         console.error(error)
     }

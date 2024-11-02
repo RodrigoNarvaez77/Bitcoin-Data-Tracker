@@ -6,12 +6,38 @@
     <title>Datos de Bitcoin</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        body {
+            background-color: #343a40; /* Fondo oscuro */
+            color: white; /* Texto en blanco para mejor contraste */
+        }
+
         .table-container {
             max-height: 400px; /* Ajusta la altura máxima según necesites */
             overflow-y: auto; /* Permite el desplazamiento vertical */
             border: 1px solid #dee2e6; /* Borde alrededor de la tabla */
             border-radius: 0.25rem; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+            transition: transform 0.3s; /* Transición suave para el efecto hover */
+            background-color: #ffffff; /* Fondo blanco para la tabla */
+        }
+
+        .table-container:hover {
+            transform: scale(1.02); /* Efecto de escala al pasar el mouse */
+        }
+
+        header {
+            animation: fadeIn 1s; /* Animación de entrada */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -20,13 +46,13 @@
         <h1>Datos de Bitcoin</h1>
     </header>
     <main class="container my-4">
-        <section id="bitcoin-data" class="mb-4">
+        <section id="bitcoin-data" class="mb-4 fade-in">
             <h2 class="text-primary">Información Actual</h2>
             <p>Precio Actual: <span id="current-price">--</span></p>
             <p>Variación 24h: <span id="price-change">--</span></p>
             <p>Moneda: <span id="Moneda">--</span></p>
         </section>
-        <section id="historical-data">
+        <section id="historical-data" class="fade-in">
             <div class="table-container mb-4">
                 <h2 class="text-primary">Datos Históricos</h2>
                 <table class="table table-striped">
@@ -43,6 +69,13 @@
             </div>
         </section>
     </main>
+    <div class="fade-in">
+        <h2 class="text-primary" style="text-align: center;">Gráfico Histórico</h2>
+        <canvas id="miGrafico" width="400" height="200"></canvas>
+    </div>
+    <script>
+        // Aquí iría tu lógica para llenar los datos y graficar
+    </script>
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
