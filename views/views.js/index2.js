@@ -42,6 +42,9 @@ async function historicos(){
 
         });
 
+        labels.reverse();
+        dataPoints.reverse();
+
         //grafico analisis de datos
         const miGrafico = new Chart(ctx, {
             type: 'line', // Cambia a 'line' o 'pie' según lo que necesites
